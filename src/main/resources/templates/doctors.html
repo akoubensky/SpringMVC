@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Doctors</title>
+        <style>
+            div { margin: 5px; }
+        </style>
+    </head>
+    <body>
+        <h1>Список докторов</h1>
+
+        <table style="border: 1px solid; width: 30%">
+            <col width="50%"/><col/>
+            <tr>
+                <th>Фамилия</th>
+                <th>Специальность</th>
+            </tr>
+            <tr th:each="p: ${doctors}" >
+                <td th:text="${p.name}"></td>
+                <td th:text="${p.position}"></td>
+            </tr>
+        </table>
+
+        <h2>Добавить доктора</h2>
+        <form action="/doctors" method="post">
+            <div>Фамилия: <input type="text" name="name"></div>
+            <div>Специальность: <input type="text" name="position"></div>
+            <div><button type="submit">Добавить</button></div>
+        </form>
+    </body>
+</html>
